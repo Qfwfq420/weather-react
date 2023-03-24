@@ -56,7 +56,11 @@ export default function (props) {
 
   let sig = (
     <p>
-      <a href="https://github.com/Qfwfq420/weather-react" target="_blank">
+      <a
+        href="https://github.com/Qfwfq420/weather-react"
+        target="_blank"
+        rel="noreferrer"
+      >
         GitHub repository
       </a>
     </p>
