@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
 export default function (props) {
   let [city, setCity] = useState("");
@@ -46,21 +43,15 @@ export default function (props) {
   );
 
   let list = (
-    <Container fluid>
-      <Row>
-        <Col>
-          <ul>
-            <li>Tempreture: {temp}°C</li>
-            <li>Description: {desc}</li>
-            <li>Humidity: {humid}%</li>
-            <li>Wind: {wind} km/h</li>
-          </ul>
-        </Col>
-        <Col>
-          <img src={icon} class="icon" />
-        </Col>
-      </Row>
-    </Container>
+    <ul>
+      <li>Tempreture: {temp}°C</li>
+      <li>Description: {desc}</li>
+      <li>Humidity: {humid}%</li>
+      <li>Wind: {wind} km/h</li>
+      <li>
+        <img src={icon} class="icon" />
+      </li>
+    </ul>
   );
 
   let sig = (
