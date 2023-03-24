@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function (props) {
+export default function Search(props) {
   let [city, setCity] = useState("");
   let [temp, setTemp] = useState(null);
   let [desc, setDesc] = useState(null);
