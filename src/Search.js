@@ -49,7 +49,7 @@ export default function (props) {
       <li>Humidity: {humid}%</li>
       <li>Wind: {wind} km/h</li>
       <li>
-        <img src={icon} class="icon" />
+        <img src={icon} class="icon" alt="weather logo" />
       </li>
     </ul>
   );
