@@ -1,27 +1,14 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 .App {
-  font-family: sans-serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   text-align: center;
   background-color: #00204a;
   color: #fdb44b;
   max-width: 50%;
   display: block;
   margin: 0 auto;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 10px;
+  margin-top: 20px;
 }
 
 li {
@@ -30,12 +17,12 @@ li {
 }
 
 form {
-  padding: 15px;
+  padding: 10px;
   margin: 20px;
 }
 
 input {
-  padding: 10px 30px;
+  padding: 5px 20px;
   text-align: center;
   margin-top: 20px;
   margin: 5px;
@@ -43,15 +30,38 @@ input {
   border-color: #142d4c;
 }
 
-button {
-  padding: 5px 20px;
-  border: None;
-  background-color: #00bbf0;
-}
-
 a {
   color: #fdb44b;
   padding: 2px;
   font-size: 12px;
   margin: 10px;
+  text-decoration: none !important;
+}
+
+div {
+  margin: 0;
+}
+a:visited {
+  color: #00bbf0;
+  text-decoration: none !important;
+}
+span {
+  margin: 0;
+}
+.button {
+  padding: 5px 20px;
+  border: None;
+  background-color: #00bbf0;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.icon {
+  background-color: #00bbf0;
+  border-radius: 50%;
+}
+
+.unit {
+  font-size: 20px;
+  color: #00bbf0;
 }

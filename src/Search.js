@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Time from "./Time";
+import Icon from "./Icon";
+import Tempreture from "./Tempreture";
 
 export default function Search(props) {
-  let [city, setCity] = useState("");
+  let [city, setCity] = useState(props.deafultCity);
   let [temp, setTemp] = useState(null);
   let [desc, setDesc] = useState(null);
   let [humid, setHumid] = useState(null);
   let [wind, setWind] = useState(null);
   let [icon, setIcon] = useState(null);
+  let [date, setDate] = useState(new Date());
+
+  function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
   function submitted(event) {
     event.preventDefault();
@@ -16,42 +24,51 @@ export default function Search(props) {
   }
   function update(event) {
     event.preventDefault();
-    setCity(event.target.value);
+    setCity(capitalize(event.target.value));
   }
   function showTemperature(response) {
     setTemp(Math.round(response.data.main.temp));
     setDesc(response.data.weather[0].description);
     setHumid(response.data.main.humidity);
     setWind(response.data.wind.speed);
-    setIcon(
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
+    setIcon(response.data.weather[0].icon);
+    setDate(new Date());
   }
 
   let form = (
-    <form class="search" action="/submit" onSubmit={submitted}>
+    <form className="search" action="/submit" onSubmit={submitted}>
       <input
         type="text"
         name="city"
         placeholder="Type a city name"
-        class="bar"
+        className="bar"
         required
         onChange={update}
       />
-      <input type="submit" value="Search" class="button" />
+      <input type="submit" value="Search" className="button" />
     </form>
   );
 
   let list = (
-    <ul>
-      <li>Tempreture: {temp}°C</li>
-      <li>Description: {desc}</li>
-      <li>Humidity: {humid}%</li>
-      <li>Wind: {wind} km/h</li>
-      <li>
-        <img src={icon} class="icon" alt="weather logo" />
-      </li>
-    </ul>
+    <div className="container">
+      <h3>{city}</h3>
+      <Time date={date} />
+      <div className="row">
+        <div className="col-6">
+          <ul>
+            <li>
+              Tempreture: <Tempreture temp={temp} metric="C" />
+            </li>
+            <li>Description: {desc}</li>
+            <li>Humidity: {humid}%</li>
+            <li>Wind: {wind} km/h</li>
+          </ul>
+        </div>
+        <div className="col-6">
+          <Icon code={icon} />
+        </div>
+      </div>
+    </div>
   );
 
   let sig = (
