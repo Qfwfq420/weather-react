@@ -3,6 +3,7 @@ import axios from "axios";
 import Time from "./Time";
 import Icon from "./Icon";
 import Tempreture from "./Tempreture";
+import Forecast from "./Forecast";
 
 export default function Search(props) {
   let [city, setCity] = useState(props.deafultCity);
@@ -12,6 +13,7 @@ export default function Search(props) {
   let [wind, setWind] = useState(null);
   let [icon, setIcon] = useState(null);
   let [date, setDate] = useState(new Date());
+  let [coord, setCoord] = useState(null);
 
   function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -33,6 +35,7 @@ export default function Search(props) {
     setWind(response.data.wind.speed);
     setIcon(response.data.weather[0].icon);
     setDate(new Date());
+    setCoord(response.data.coord);
   }
 
   let form = (
@@ -57,7 +60,7 @@ export default function Search(props) {
         <div className="col-6">
           <ul>
             <li>
-              Tempreture: <Tempreture temp={temp} metric="C" />
+              Tempreture: <Tempreture temp={temp} />
             </li>
             <li>Description: {desc}</li>
             <li>Humidity: {humid}%</li>
@@ -65,8 +68,10 @@ export default function Search(props) {
           </ul>
         </div>
         <div className="col-6">
-          <Icon code={icon} />
+          <Icon code={icon} size={120} />
         </div>
+        <br />
+        <Forecast city={city} coord={coord} />
       </div>
     </div>
   );

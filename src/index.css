@@ -61,7 +61,15 @@ span {
   border-radius: 50%;
 }
 
-.unit {
-  font-size: 20px;
-  color: #00bbf0;
+.forecast {
+  padding: 10px;
+  margin: 10px;
+}
+
+.min {
+  opacity: 75%;
+}
+
+.forecastIcon {
+  padding: 10px;
 }
